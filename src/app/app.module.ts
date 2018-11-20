@@ -11,6 +11,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ContentComponent } from './content/content.component';
 import { UserCardComponent } from './user-card/user-card.component';
+import { TicketsInfoComponent } from './tickets-info/tickets-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserCardComponent } from './user-card/user-card.component';
     UserDetailComponent,
     routingComponents,
     ContentComponent,
-    UserCardComponent
+    UserCardComponent,
+    TicketsInfoComponent
   ],
   imports: [
     BrowserModule,
