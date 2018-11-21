@@ -8,10 +8,23 @@ import { Ticket } from './ticket';
 })
 export class TicketsInfoComponent implements OnInit {
 
-  buttonText = 'Editar';
   buttonState = true;
-  typeInput = 'password';
   isReadOnly = true;
+  saveButton = false;
+  editButton = true;
+
+  savedTicket: Ticket = {
+    fecha: '',
+    folio: '',
+    nombre: '',
+    apellidos: '',
+    tarjeta: '',
+    dispositvo: false,
+    tipo_problema: '',
+    problema: '',
+    solucion: '',
+    status: ''
+  };
 
   constructor() { }
 
@@ -21,14 +34,14 @@ export class TicketsInfoComponent implements OnInit {
   onClickButton(){
     if (this.buttonState == true){
       this.isReadOnly = false;
-      this.buttonText = 'Guardar';
-      this. typeInput = 'text'
       this.buttonState = false;
+      this.saveButton = true;
+      this.editButton = false;
     } else {
       this.buttonState = true;
       this.isReadOnly = true;
-      this.typeInput = 'password';
-      this.buttonText = 'Editar';
+      this.saveButton = false;
+      this.editButton = true;
     }
   }
 
