@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ContentComponent } from './content/content.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { TicketsInfoComponent } from './tickets-info/tickets-info.component';
+import { TicketsListComponent } from './tickets-list/tickets-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TicketsInfoComponent } from './tickets-info/tickets-info.component';
     routingComponents,
     ContentComponent,
     UserCardComponent,
-    TicketsInfoComponent
+    TicketsInfoComponent,
+    TicketsListComponent
   ],
   imports: [
     BrowserModule,
