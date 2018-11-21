@@ -1,55 +1,73 @@
 <div class="card scrollable">
     <div class="card-header">
       <div class="row">
-        <div class="col-6">
-            Crear Ticket
+        <div class="title col-6 text-left">
+            Crear Ticket <i class="fa fa-ticket" aria-hidden="true"></i>
         </div>
-        <div class="col-6">
-            <button type="button" (click)="onClickButton(liveUser.nombre)" class="btn btn-primary edit-button">{{buttonText}}</button>
+        <div class="col-6 text-right">
+            <button type="button" (click)="onClickButton(liveUser.nombre)" class="btn btn-primary edit-button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         </div>
       </div>
       </div>
     <div class="card-body">
         <form>
-            <div class="form-group">
-              <label for="nombre">Fecha:</label>
-              <input type="text" class="form-control" placeholder="Ingrese fecha" value="{{savedUser.nombre}}" [readonly]="isReadOnly" name="nombre">
+          <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nombre">Fecha:</label>
+                    <input type="date" class="form-control" placeholder="Ingrese fecha" value="{{savedUser.nombre}}" [readonly]="isReadOnly" name="nombre">
+                  </div>
             </div>
-            <div class="form-group">
-              <label for="email">Folio:</label>
-              <input type="email" class="form-control" placeholder="Ingrese folio" value="{{savedUser.email}}" [readonly]="isReadOnly" name="email">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email">Folio:</label>
+                    <input type="email" class="form-control" placeholder="Ingrese folio" value="{{savedUser.email}}" [readonly]="isReadOnly" name="email">
+                  </div>
             </div>
-            <div class="form-group">
-              <label for="password">Nombre:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese nombre" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+          </div>
+          <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label for="nombre">Nombre:</label>
+                      <input type="text" class="form-control" placeholder="Ingrese fecha" value="{{savedUser.nombre}}" [readonly]="isReadOnly" name="nombre">
+                    </div>
+              </div>
+              <div class="col-6">
+                  <div class="form-group">
+                      <label for="email">Apellidos:</label>
+                      <input type="email" class="form-control" placeholder="Ingrese folio" value="{{savedUser.email}}" [readonly]="isReadOnly" name="email">
+                    </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="password">Apellidos:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese apellidos" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
-            </div>
-            <div class="form-group">
-              <label for="password">Tarjeta:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese tarjeta" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
-            </div>
-            <div class="form-group">
-              <label for="password">Dispositivo:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
-            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="nombre">Tarjeta:</label>
+                        <input type="text" class="form-control" placeholder="Ingrese fecha" value="{{savedUser.nombre}}" [readonly]="isReadOnly" name="nombre">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="email">Dispositivo:</label>
+                        <input type="email" class="form-control" placeholder="Ingrese folio" value="{{savedUser.email}}" [readonly]="isReadOnly" name="email">
+                      </div>
+                </div>
+              </div>
             <div class="form-group">
               <label for="password">Tipo de problema:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+              <input type="text" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
             </div>
             <div class="form-group">
               <label for="password">Problema:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+              <input type="text" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
             </div>
             <div class="form-group">
               <label for="password">Solucion:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+              <input type="text" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
             </div>
             <div class="form-group">
               <label for="password">Status:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+              <input type="text" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
             </div>
         </form>  
     </div>

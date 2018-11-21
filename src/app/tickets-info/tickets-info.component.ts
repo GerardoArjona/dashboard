@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from './ticket';
 
 @Component({
   selector: 'app-tickets-info',
@@ -17,8 +18,7 @@ export class TicketsInfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickButton(nombre){
-    console.log(nombre);
+  onClickButton(){
     if (this.buttonState == true){
       this.isReadOnly = false;
       this.buttonText = 'Guardar';
