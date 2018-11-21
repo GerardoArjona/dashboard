@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserChatComponent } from './user-chat/user-chat.component';
@@ -34,7 +33,6 @@ import { TicketsListComponent } from './tickets-list/tickets-list.component';
     AppRoutingModule,
     FormsModule,
     AngularFontAwesomeModule,
-    Ng2SmartTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
