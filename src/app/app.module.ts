@@ -28,7 +28,7 @@ import { SearchListTicketsPipe } from './search-list-tickets.pipe';
     UserCardComponent,
     TicketsInfoComponent,
     TicketsListComponent,
-    SearchListTicketsPipe
+    SearchListTicketsPipe,
   ],
   imports: [
     BrowserModule,

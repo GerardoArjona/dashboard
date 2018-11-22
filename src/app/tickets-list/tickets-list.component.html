@@ -10,22 +10,22 @@
         </div>
   </div>
   <div class="card-body card-list-body">
-      <table class="table table-sm table-hover table-bordered" data-sort-order="desc">
+      <table class="table table-sm table-hover table-bordered">
           <thead>
             <tr>
-              <th scope="col">Fecha</th>
-              <th scope="col">Folio</th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFecha()">Fecha <i class="fa fa-{{fechaArrow}}"></i></th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFolio()">Folio <i class="fa fa-{{folioArrow}}" aria-hidden="true"></i></th>
               <th scope="col">Tarjeta</th>
               <th scope="col">Tipo de problema</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let ticket of tickets | searchListTickets: {fecha: searchText, folio:searchText,  tarjeta: searchText, tipo_problema: searchText};">
-              <th scope="row">{{ticket.fecha}}</th>
-              <th>{{ticket.folio}}</th>
-              <td>{{ticket.tarjeta}}</td>
-              <td>{{ticket.tipo_problema}}</td>
-            </tr>
+              <tr *ngFor="let ticket of tickets | searchListTickets: {fecha: searchText, folio:searchText,  tarjeta: searchText, tipo_problema: searchText};">
+                <th scope="row">{{ticket.fecha}}</th>
+                <th>{{ticket.folio}}</th>
+                <td>{{ticket.tarjeta}}</td>
+                <td>{{ticket.tipo_problema}}</td>
+              </tr>
           </tbody>
         </table>
   </div>
