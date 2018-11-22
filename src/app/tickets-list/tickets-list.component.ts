@@ -12,9 +12,63 @@ export class TicketsListComponent implements OnInit {
   folioArrow = 'minus';
   orderFecha = 'asc';
   fechaArrow = 'minus';
+  tickets = [];
+  paginate_five = false;
+  paginate_ten = false;
+  paginate_twenty = false;
+  begin = 0;
+  end = 0;
 
 
-  tickets = [
+  obtainedTickets = [
+    {
+      fecha: '07-15-2016',
+      folio: '1004',
+      nombre: 'Arturo',
+      apellidos: 'Gomez Franciso',
+      tarjeta: '1111-1111-1111-1111',
+      dispositvo: false,
+      tipo_problema: 'Problemas de pago',
+      problema: 'No puede pagar',
+      solucion: 'Cambio de tarjeta',
+      status: 'Resuelto'
+    },
+    {
+      fecha: '07-15-2016',
+      folio: '105504',
+      nombre: 'Arturo',
+      apellidos: 'Gomez Franciso',
+      tarjeta: '1111-1111-1111-1111',
+      dispositvo: false,
+      tipo_problema: 'Problemas de pago',
+      problema: 'No puede pagar',
+      solucion: 'Cambio de tarjeta',
+      status: 'Resuelto'
+    },
+    {
+      fecha: '07-15-2016',
+      folio: '10004400',
+      nombre: 'Arturo',
+      apellidos: 'Gomez Franciso',
+      tarjeta: '1111-1111-1111-1111',
+      dispositvo: false,
+      tipo_problema: 'Problemas de pago',
+      problema: 'No puede pagar',
+      solucion: 'Cambio de tarjeta',
+      status: 'Resuelto'
+    },
+    {
+      fecha: '07-15-2016',
+      folio: '10500',
+      nombre: 'Arturo',
+      apellidos: 'Gomez Franciso',
+      tarjeta: '1111-1111-1111-1111',
+      dispositvo: false,
+      tipo_problema: 'Problemas de pago',
+      problema: 'No puede pagar',
+      solucion: 'Cambio de tarjeta',
+      status: 'Resuelto'
+    },
     {
       fecha: '07-15-2016',
       folio: '100000',
@@ -100,7 +154,9 @@ export class TicketsListComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor() {
+    this.tickets = this.obtainedTickets;
+   }
 
   ngOnInit() {
   }
@@ -288,6 +344,95 @@ export class TicketsListComponent implements OnInit {
       }
       this.orderFecha = 'asc'
       this.fechaArrow = 'arrow-down'
+    }
+  }
+
+  paginateFive(){
+    this.paginate_five = true
+    this.paginate_ten = false
+    this.paginate_twenty = false
+    this.begin = 0
+    this.end = 5
+    this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+  }
+
+  paginateTen(){
+    this.paginate_five = false
+    this.paginate_ten = true
+    this.paginate_twenty = false
+    this.begin = 0
+    this.end = 10
+    this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+  }
+
+  paginateTwenty(){
+    this.paginate_five = false
+    this.paginate_ten = false
+    this.paginate_twenty = true
+    this.begin = 0
+    this.end = 20
+    this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+  }
+
+  nextPage(){
+    if(this.paginate_five){
+      this.begin += 5
+      this.end += 5
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin -= 5
+        this.end -= 5
+      }
+    }else if(this.paginate_ten){
+      this.begin += 10
+      this.end += 10
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin -= 10
+        this.end -= 10
+      }
+    }else if(this.paginate_twenty){
+      this.begin += 20
+      this.end += 20
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin -= 20
+        this.end -= 20
+      }
+    }
+  }
+
+  previousPage(){
+    if(this.paginate_five){
+      this.begin -= 5
+      this.end -= 5
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin += 5
+        this.end += 5
+      }
+    }else if(this.paginate_ten){
+      this.begin -= 10
+      this.end -= 10
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin += 10
+        this.end += 10
+      }
+    }else if(this.paginate_twenty){
+      this.begin -= 20
+      this.end -= 20
+      if(this.obtainedTickets.slice(this.begin, this.end).length != 0){
+        this.tickets = this.obtainedTickets.slice(this.begin, this.end)
+      }else{
+        this.begin += 20
+        this.end += 20
+      }
     }
   }
 
