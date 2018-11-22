@@ -1,0 +1,12 @@
+img{
+    align-self: center;
+    border-radius: 3px;
+    height: 5rem;
+    padding-top: 4%;
+}
+
+.card{
+    border-radius: 0px !important;
+    background-color: #050631;
+    color: #fff;
+}

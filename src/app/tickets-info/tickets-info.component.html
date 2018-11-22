@@ -1,0 +1,89 @@
+<div class="card scrollable">
+    <div class="card-header">
+      <div class="row">
+        <div class="title col-6 text-left">
+            Crear Ticket <i class="fa fa-ticket" aria-hidden="true"></i>
+        </div>
+        <div class="col-6 text-right">
+            <button *ngIf="editButton" type="button" (click)="onClickButton()" class="btn btn-primary edit-button">Editar <i class="fa fa-pencil" aria-hidden="true" ></i></button>
+            <button *ngIf="saveButton" type="button" class="btn btn-warning edit-button" data-toggle="modal" data-target="#exampleModal" >Guardar <i class="fa fa-save" aria-hidden="true" ></i></button>
+        </div>
+      </div>
+      </div>
+    <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nombre">Fecha:</label>
+                    <input type="date" class="form-control" placeholder="Ingrese Fecha" value="{{savedTicket.fecha}}" [readonly]="isReadOnly" name="fecha">
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email">Folio:</label>
+                    <input type="email" class="form-control" placeholder="Ingrese Folio" value="{{savedTicket.folio}}" [readonly]="isReadOnly" name="folio">
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label for="nombre">Nombre/s:</label>
+                      <input type="text" class="form-control" placeholder="Ingrese Nombre" value="{{savedTicket.nombre}}" [readonly]="isReadOnly" name="nombre">
+                    </div>
+              </div>
+              <div class="col-6">
+                  <div class="form-group">
+                      <label for="email">Apellidos:</label>
+                      <input type="email" class="form-control" placeholder="Ingrese Apellidos" value="{{savedTicket.apellidos}}" [readonly]="isReadOnly" name="apellidos">
+                    </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="nombre">Tarjeta:</label>
+                        <input type="text" class="form-control" placeholder="Ingrese Tarjeta" value="{{savedTicket.tarjeta}}" [readonly]="isReadOnly" name="tarjeta">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="email">Dispositivo:</label>
+                        <input type="email" class="form-control" placeholder="Ingrese Dispositivo" value="{{savedTicket.dispositivo}}" [readonly]="isReadOnly" name="dispositivo">
+                      </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="password">Tipo de problema:</label>
+              <input type="text" class="form-control" placeholder="Ingrese el Tipo de Problema" value="{{savedTicket.tipo_problema}}" [readonly]="isReadOnly" name="tipo_problema">
+            </div>
+            <div class="form-group">
+              <label for="password">Problema:</label>
+              <input type="text" class="form-control" placeholder="Ingrese el Problema" value="{{savedTicket.problema}}" [readonly]="isReadOnly" name="problema">
+            </div>
+            <div class="form-group">
+              <label for="password">Solucion:</label>
+              <input type="text" class="form-control" placeholder="Ingrese la Solucion" value="{{savedTicket.solucion}}" [readonly]="isReadOnly" name="solucion">
+            </div>
+            <div class="form-group">
+              <label for="password">Status:</label>
+              <input type="text" class="form-control" placeholder="Ingrese el Status" value="{{savedTicket.status}}" [readonly]="isReadOnly" name="status">
+            </div>
+        </form>  
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Guardar el ticket?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No Guardar <i class="fa fa-ban" aria-hidden="true" ></i></button>
+        <button type="button" class="btn btn-success" (click)="onClickButton()" data-dismiss="modal" >Guardar <i class="fa fa-save" aria-hidden="true" ></i></button>
+      </div>
+    </div>
+  </div>
+</div>

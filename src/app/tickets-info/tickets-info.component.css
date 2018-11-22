@@ -1,0 +1,14 @@
+.scrollable {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.title{
+    font-size: 175%;
+    font-weight: bold;
+}
+
+label{
+    font-size: 118%;
+    font-weight: bold;
+}
