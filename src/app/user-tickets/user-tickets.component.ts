@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketsListComponent } from '../tickets-list/tickets-list.component';
+
 
 @Component({
   selector: 'app-user-tickets',
