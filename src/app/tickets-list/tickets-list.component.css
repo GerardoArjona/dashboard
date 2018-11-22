@@ -1,3 +1,8 @@
+.scrollable {
+    max-height: 70%;
+    overflow-y: auto;
+}
+
 .table{
     background-color: #fff;
     border-radius: 5px;
@@ -28,4 +33,51 @@ thead{
 .tickets-title{
     font-size: 175%;
     font-weight: bold;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+    }
+    
+    th{
+        background: #F0EEEE;
+    }
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	th:nth-of-type(1):before { content: "Fecha: "; }
+	th:nth-of-type(2):before { content: "Folio: "; }
+	td:nth-of-type(1):before { content: "Tarjeta: "; }
+	td:nth-of-type(2):before { content: "T. Problema: "; }
 }

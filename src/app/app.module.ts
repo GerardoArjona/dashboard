@@ -14,6 +14,7 @@ import { ContentComponent } from './content/content.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { TicketsInfoComponent } from './tickets-info/tickets-info.component';
 import { TicketsListComponent } from './tickets-list/tickets-list.component';
+import { SearchListTicketsPipe } from './search-list-tickets.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TicketsListComponent } from './tickets-list/tickets-list.component';
     ContentComponent,
     UserCardComponent,
     TicketsInfoComponent,
-    TicketsListComponent
+    TicketsListComponent,
+    SearchListTicketsPipe
   ],
   imports: [
     BrowserModule,
