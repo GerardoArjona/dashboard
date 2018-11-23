@@ -1,4 +1,9 @@
+.container-fluid{
+    position: relative;
+}
+
 .scrollable {
     max-height: 100%;
     overflow-y: auto;
+    
 }
