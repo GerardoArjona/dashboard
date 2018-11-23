@@ -1,9 +1,6 @@
 img{
     align-self: center;
     border-radius: 50%;
-    height: 10vw;
-    width: 10vw;
-    max-height: 50%;
     max-width: 60%;
     margin-top: 20%;
 }
@@ -18,4 +15,14 @@ h5{
     background-color: #050631;
     color: #fff;
     border: 0;
+}
+
+@media only screen and (max-width: 700px) {
+    img{
+        display: none;
+    }
+    h5{
+        font-size: xx-large;
+    }
+    
 }

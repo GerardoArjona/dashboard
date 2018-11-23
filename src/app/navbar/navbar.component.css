@@ -1,9 +1,9 @@
-.nav, .container-fluid{
+.container-fluid{
     background-color: #050631;
     width: 100%;
     padding: 0;
+    
 }
-
 
 
 .nav-link{
@@ -44,7 +44,8 @@ a:hover{
     background-color: #1a1a1a;
     color: #53a7ea;
 }
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
+
     nav a {
       text-align: center;
       float: none;
