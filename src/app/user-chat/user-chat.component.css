@@ -1,0 +1,101 @@
+.scrollable {
+    max-height: 100%;
+	overflow-y: auto;
+}
+
+.card{
+	max-height: 28%;
+}
+
+.title, p.nombre-user{
+    font-size: 175%;
+    font-weight: bold;
+}
+
+p.nombre-user{
+    font-size: 135%;
+    font-weight: bold;
+}
+
+p{
+	font-size: 165%;
+}
+
+h4, h5 {
+	padding-top: -2%; 
+	font-size: 55%;
+}
+
+label{
+    font-size: 118%;
+    font-weight: bold;
+}
+
+input{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.send-button{
+    padding-top: 2%;
+}
+
+.received{
+    background-color: #E1FFFA;
+	border-radius: 5px;
+	width: 60%;
+	margin-top: 1%;
+	border-style: solid;
+	border-width: 1px;
+	padding-left: 2%; 
+}
+
+.sent{
+    background-color: #FCFFE1;
+	border-radius: 5px;
+	width: 60%; 
+	margin-top: 1%; 
+	border-style: solid;
+	border-width: 1px;
+	padding-right: 2%;
+}
+
+.speech-bubble-sent {
+	position: relative;
+	border-radius: .4em;
+}
+
+.speech-bubble-sent:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-left-color: yellow;
+	border-right: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-right: -10px;
+}
+
+.speech-bubble-received {
+	position: relative;
+	border-radius: .4em;
+}
+
+.speech-bubble-received:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: aquamarine;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-left: -10px;
+}

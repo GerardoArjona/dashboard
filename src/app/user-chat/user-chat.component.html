@@ -1,6 +1,35 @@
 <div class="card">
-    <div class="card-body">
-        <form>
-        </form>  
+    <div class="card-header">
+      <div class="row">
+        <div class="title col-6 text-left">
+            Chat <i class="fa fa-comments" aria-hidden="true"></i>
+        </div>
+        <div class="col-6 text-left">
+            <p class="nombre-user">Hablando con: {{user.name}}</p>
+        </div>
+      </div>
+      </div>
+    <div class="card-body scrollable"> 
+        <div class="row">
+            <div class="col-12">
+                <div class="{{message.who}}" *ngFor="let message of messages">
+                    <p>{{message.text}}</p>
+                    <h4>{{message.time}}</h4>
+                    <h5>{{message.date}}</h5>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-12">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row send-button text-right">
+            <div class="col-12">
+                    <button class="btn btn-danger">Envíar</button>
+            </div>
+        </div>
+    </div>
+</div>
