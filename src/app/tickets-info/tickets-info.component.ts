@@ -8,10 +8,10 @@ import { Ticket } from './ticket';
 })
 export class TicketsInfoComponent implements OnInit {
 
-  buttonState = true;
-  isReadOnly = true;
-  saveButton = false;
-  editButton = true;
+  buttonState = false;
+  isReadOnly = false;
+  saveButton = true;
+  editButton = false;
 
   savedTicket: Ticket = {
     fecha: '',
