@@ -29,7 +29,7 @@
           </tbody>
         </table>
         <div class="text-center">
-          <button (click)="previousPage()"><i class="fa fa-arrow-left"></i></button><button (click)="paginateFive()">5</button><button (click)="paginateTen()">10</button><button (click)="paginateTwenty()">20</button><button (click)="nextPage()"><i class="fa fa-arrow-right"></i></button>
+          <button (click)="previousPage()"><i class="fa fa-arrow-left"></i></button><button class="{{clickedFive}}" (click)="paginateFive()">5</button><button class="{{clickedTen}}" (click)="paginateTen()">10</button><button class="{{clickedTwenty}}" (click)="paginateTwenty()">20</button><button (click)="nextPage()"><i class="fa fa-arrow-right"></i></button>
         </div>
   </div>
 </div>

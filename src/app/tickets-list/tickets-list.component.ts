@@ -8,6 +8,9 @@ import { Component, OnInit} from '@angular/core';
 export class TicketsListComponent implements OnInit {
 
   searchText : string;
+  clickedFive: string;
+  clickedTen: string;
+  clickedTwenty: string;
   orderFolio = 'asc';
   folioArrow = 'minus';
   orderFecha = 'asc';
@@ -352,9 +355,15 @@ export class TicketsListComponent implements OnInit {
     this.paginate_ten = false
     this.paginate_twenty = false
     if(this.end != 5){
+      this.clickedFive = "clicked";
+      this.clickedTen = "unclicked";
+      this.clickedTwenty = "unclicked";
       this.begin = 0
       this.end = 5
     }else{
+      this.clickedFive = "unclicked";
+      this.clickedTen = "unclicked";
+      this.clickedTwenty = "unclicked";
       this.begin = 0
       this.end = this.obtainedTickets.length;
     }
@@ -366,9 +375,15 @@ export class TicketsListComponent implements OnInit {
     this.paginate_ten = true
     this.paginate_twenty = false
     if(this.end != 10){
+      this.clickedTen = "clicked";
+      this.clickedFive = "unclicked";
+      this.clickedTwenty = "unclicked";
       this.begin = 0
       this.end = 10
     }else{
+      this.clickedFive = "unclicked";
+      this.clickedTen = "unclicked";
+      this.clickedTwenty = "unclicked";
       this.begin = 0
       this.end = this.obtainedTickets.length;
     }
@@ -380,9 +395,15 @@ export class TicketsListComponent implements OnInit {
     this.paginate_ten = false
     this.paginate_twenty = true
     if(this.end != 20){
+      this.clickedTwenty = "clicked";
+      this.clickedFive = "unclicked";
+      this.clickedTen = "unclicked";
       this.begin = 0
       this.end = 20
     }else{
+      this.clickedFive = "unclicked";
+      this.clickedTen = "unclicked";
+      this.clickedTwenty = "unclicked";
       this.begin = 0
       this.end = this.obtainedTickets.length;
     }
