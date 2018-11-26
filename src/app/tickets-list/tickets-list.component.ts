@@ -351,8 +351,13 @@ export class TicketsListComponent implements OnInit {
     this.paginate_five = true
     this.paginate_ten = false
     this.paginate_twenty = false
-    this.begin = 0
-    this.end = 5
+    if(this.end != 5){
+      this.begin = 0
+      this.end = 5
+    }else{
+      this.begin = 0
+      this.end = this.obtainedTickets.length;
+    }
     this.tickets = this.obtainedTickets.slice(this.begin, this.end)
   }
 
@@ -360,8 +365,13 @@ export class TicketsListComponent implements OnInit {
     this.paginate_five = false
     this.paginate_ten = true
     this.paginate_twenty = false
-    this.begin = 0
-    this.end = 10
+    if(this.end != 10){
+      this.begin = 0
+      this.end = 10
+    }else{
+      this.begin = 0
+      this.end = this.obtainedTickets.length;
+    }
     this.tickets = this.obtainedTickets.slice(this.begin, this.end)
   }
 
@@ -369,8 +379,13 @@ export class TicketsListComponent implements OnInit {
     this.paginate_five = false
     this.paginate_ten = false
     this.paginate_twenty = true
-    this.begin = 0
-    this.end = 20
+    if(this.end != 20){
+      this.begin = 0
+      this.end = 20
+    }else{
+      this.begin = 0
+      this.end = this.obtainedTickets.length;
+    }
     this.tickets = this.obtainedTickets.slice(this.begin, this.end)
   }
 
