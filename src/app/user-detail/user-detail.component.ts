@@ -8,38 +8,45 @@ import { User } from './user';
 })
 export class UserDetailComponent implements OnInit {
 
+  buttonState = false;
+  isReadOnly = false;
+  saveButton = true;
+  editButton = false;
   buttonText = 'Editar';
-  buttonState = true;
   typeInput = 'password';
-  isReadOnly = true;
+
   savedUser: User = {
     nombre: 'Gerardo',
     email: 'gerardo.arj15@gmail.com',
-    password: '123456'
-  };
-  liveUser: User = {
-    nombre: '',
-    email: '',
-    password: ''
-  };
+    nombre_impreso: 'Gerardo Arjona',
+    birth: '12-03-04',
+    estado_civil: 'Soltero',
+    nombre_madre: 'Juanita',
+    dir_envio: 'Av. guanajuato',
+    dir_cobro: 'Av. algo',
+    telefono: '50505050505',
+    user_agent: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
+    };
+  
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClickButton(nombre){
-    console.log(nombre);
+  onClickButton(){
     if (this.buttonState == true){
       this.isReadOnly = false;
       this.buttonText = 'Guardar';
-      this. typeInput = 'text'
       this.buttonState = false;
+      this.saveButton = true;
+      this.editButton = false;
     } else {
       this.buttonState = true;
       this.isReadOnly = true;
-      this.typeInput = 'password';
       this.buttonText = 'Editar';
+      this.saveButton = false;
+      this.editButton = true;
     }
   }
 

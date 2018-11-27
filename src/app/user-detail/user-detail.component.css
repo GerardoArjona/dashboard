@@ -1,0 +1,18 @@
+.scrollable {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.card{
+	max-height: 28%;
+}
+
+.title{
+    font-size: 175%;
+    font-weight: bold;
+}
+
+label{
+    font-size: 118%;
+    font-weight: bold;
+}

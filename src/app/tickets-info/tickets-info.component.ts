@@ -8,7 +8,7 @@ import { Ticket } from './ticket';
 })
 export class TicketsInfoComponent implements OnInit {
 
-  buttonState = false;
+  buttonState = true;
   isReadOnly = false;
   saveButton = true;
   editButton = false;

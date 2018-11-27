@@ -1,22 +1,73 @@
 <div class="card">
-    <div class="card-header">
-        Informacion del usuario
-        <button type="button" (click)="onClickButton(liveUser.nombre)" class="btn btn-primary edit-button">{{buttonText}}</button>
+  <div class="card-header">
+    <div class="row">
+      <div class="title col-6 text-left">
+          Usuario <i class="fa fa-user" aria-hidden="true"></i>
       </div>
-    <div class="card-body">
+      <div class="col-6 text-right">
+          <button *ngIf="editButton" type="button" (click)="onClickButton()" class="btn btn-primary edit-button">Editar <i class="fa fa-pencil" aria-hidden="true" ></i></button>
+          <button *ngIf="saveButton" type="button" class="btn btn-warning edit-button" data-toggle="modal" data-target="#exampleModal" >Guardar <i class="fa fa-save" aria-hidden="true" ></i></button>
+      </div>
+    </div>
+    </div>
+    <div class="card-body scrollable">
         <form>
             <div class="form-group">
               <label for="nombre">Nombre:</label>
-              <input type="text" class="form-control" placeholder="Ingrese su nombre" value="{{savedUser.nombre}}" [readonly]="isReadOnly" name="nombre">
+              <input type="text" class="form-control" placeholder="Ingrese nombre" [readonly]="isReadOnly" name="nombre">
             </div>
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.email}}" [readonly]="isReadOnly" name="email">
+              <input type="email" class="form-control" placeholder="Ingrese email" [readonly]="isReadOnly" name="email">
             </div>
             <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="{{typeInput}}" class="form-control" placeholder="Ingrese su Email" value="{{savedUser.password}}" [readonly]="isReadOnly" name="password">
+              <label for="email">Nombre impreso:</label>
+              <input type="text" class="form-control" placeholder="Ingrese nombre impreso" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Cumpleaños:</label>
+              <input type="datetime-local" class="form-control" placeholder="Ingrese cumpleaños" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Estado civil:</label>
+              <input type="text" class="form-control" placeholder="Ingrese estado civil" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Nombre de la madre:</label>
+              <input type="text" class="form-control" placeholder="Ingrese nombre de la madre" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Dirección de envío:</label>
+              <input type="text" class="form-control" placeholder="Ingrese dirección de envio" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Dirección de cobro:</label>
+              <input type="text" class="form-control" placeholder="Ingrese dirección de cobro" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">Telefono:</label>
+              <input type="text" class="form-control" placeholder="Ingrese su telefono" [readonly]="isReadOnly" name="email">
+            </div>
+            <div class="form-group">
+              <label for="email">User Agent:</label>
+              <input type="text" class="form-control" placeholder="Ingrese su Email" [readonly]="isReadOnly" name="email">
             </div>
         </form>  
     </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Guardar el ticket?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No Guardar <i class="fa fa-ban" aria-hidden="true" ></i></button>
+        <button type="button" class="btn btn-success" (click)="onClickButton()" data-dismiss="modal" >Guardar <i class="fa fa-save" aria-hidden="true" ></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
