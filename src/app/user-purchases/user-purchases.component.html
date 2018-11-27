@@ -1,0 +1,22 @@
+<div class="card scrollable">
+    <div class="card-header">
+      <div class="row">
+        <div class="title col-12 text-left">
+            Movimientos <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+      </div>
+      </div>
+    <div class="card-body scrollable">
+        <form>
+          <div class="row">
+            <div class="col-12">
+                <div class="purchase form-group" *ngFor="let purchase of purchases">
+                    <label for="nombre">Fecha: {{purchase.fecha}}</label>
+                    <p><b>Monto:</b> ${{purchase.monto}}</p>
+                    <p><b>Descripción:</b> {{purchase.descripcion}}</p>
+                  </div>
+            </div>
+          </div>
+        </form>  
+    </div>
+</div>

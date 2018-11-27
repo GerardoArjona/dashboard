@@ -17,6 +17,7 @@ import { TicketsListComponent } from './tickets-list/tickets-list.component';
 import { SearchListTicketsPipe } from './search-list-tickets.pipe';
 import { UserCardInfoComponent } from './user-card-info/user-card-info.component';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { UserAccountComponent } from './user-account/user-account.component';
     SearchListTicketsPipe,
     UserCardInfoComponent,
     UserAccountComponent,
+    UserPurchasesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
 .scrollable {
-    max-height: 100%;
+    max-height: 80%;
     overflow-y: auto;
 }
 
 .card{
-	max-height: 29%;
+    max-height: 29%;
+
 }
 
 .title{
@@ -15,4 +16,10 @@
 label{
     font-size: 118%;
     font-weight: bold;
+    color: #E46AE2;
+}
+
+.purchase{
+    border-bottom-style: solid;
+    border-width: 1px;
 }
