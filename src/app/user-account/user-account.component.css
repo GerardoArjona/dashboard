@@ -1,0 +1,38 @@
+.scrollable {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.title{
+    font-size: 175%;
+    font-weight: bold;
+}
+
+label{
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.balance{
+    padding-top: 5%; 
+    padding-right: 17%; 
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.is-balance{
+    color: #FFAF03
+}
+
+.not-balance{
+    color: #EC1581;
+}
+
+h5{
+    font-size: 95%;
+}
+
+.card-field{
+    background-color: #E1E1E1;
+    border-radius: 3px;
+}

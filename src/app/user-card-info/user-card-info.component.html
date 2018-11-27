@@ -1,0 +1,57 @@
+<div class="card scrollable">
+  <div class="card-header">
+    <div class="row">
+      <div class="title col-12 text-left">
+          Tarjeta <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+      </div>
+    </div>
+    </div>
+  <div class="card-body text-center">
+      <form>
+        <div class="row">
+          <div class="col-6">
+              <div class="form-group">
+                  <label for="nombre">Status:</label>
+                  <h5 class="card-status-{{statusColor}} card-field">{{statusText}}</h5>
+                </div>
+          </div>
+          <div class="col-6">
+              <div class="form-group">
+                  <label for="email">Miembro desde:</label>
+                  <h5 class="card-field">{{card.miembro_desde}}</h5>
+                </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nombre">ID de tarjeta:</label>
+                    <h5 class="card-field">{{card.card_id}}</h5>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email">Tipo:</label>
+                    <h5 class="card-field">{{card.tipo}}</h5>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                  <div class="form-group">
+                      <label for="nombre">Número de tarjeta:</label>
+                      <h5 class="card-field">{{card.numero_tarjeta}}</h5>
+                    </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="nombre">Descripcion del producto:</label>
+                        <h5 class="card-field">{{card.descripcion}}</h5>
+                      </div>
+                </div>
+              </div>
+      </form>  
+  </div>
+</div>

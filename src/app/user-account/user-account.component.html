@@ -1,0 +1,74 @@
+<div class="card scrollable">
+    <div class="card-header">
+      <div class="row">
+        <div class="title col-6 text-left">
+            Cuenta <i class="fa fa-id-card" aria-hidden="true"></i>
+        </div>
+        <div class="col-6 text-right">
+            <label class="balance is-balance"> Balances </label>
+        </div>
+      </div>
+      </div>
+    <div class="card-body text-center">
+        <form>
+          <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="is-balance">Futuro:</label>
+                    <h5 class="card-field">${{cuenta.futuro}}</h5>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label class="is-balance">Prepagado:</label>
+                    <h5 class="card-field">${{cuenta.prepagado}}</h5>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label class="is-balance">Abierto:</label>
+                      <h5 class="card-field">${{cuenta.abierto}}</h5>
+                    </div>
+              </div>
+              <div class="col-6">
+                  <div class="form-group">
+                      <label class="is-balance">Disponible:</label>
+                      <h5 class="card-field">${{cuenta.disponible}}</h5>
+                    </div>
+              </div>
+            </div>
+            <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="is-balance">A pagar:</label>
+                            <h5 class="card-field">${{cuenta.a_pagar}}</h5>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="not-balance">Neto disponible:</label>
+                            <h5 class="card-field">${{cuenta.neto_disponible}}</h5>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="not-balance">Límite de crédito:</label>
+                                <h5 class="card-status-{{statusColor}} card-field">${{cuenta.limite_credito}}</h5>
+                              </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class="not-balance">Límite de retiro:</label>
+                                <h5 class="card-field">${{cuenta.limite_retiro}}</h5>
+                              </div>
+                        </div>
+                      </div>
+
+            
+        </form>  
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+.scrollable {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.card-header{
+    height: 50%;
+}
+
+.title{
+    font-size: 175%;
+    font-weight: bold;
+}
+
+label{
+    font-size: 100%;
+    font-weight: bold;
+}
+
+h5{
+    font-size: 95%;
+}
+
+.card-field{
+    background-color: #E1E1E1;
+    border-radius: 3px;
+}
+
+.card-status-active{
+    color: #08AC4E;
+}
+
+.card-status-inactive{
+    color: #EA2C2C;
+}
