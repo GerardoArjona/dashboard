@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-header tickets-title">
+      <div class="row">
+          <div class="title col-6 text-left">
+              Guías <i class="fa fa-map" aria-hidden="true"></i>
+          </div>
+          <div class="col-6 text-right search-col">
+            <input class="search"  [(ngModel)]="searchText" type="text" placeholder="Buscar"><i class="fa fa-search" aria-hidden="true" ></i>
+          </div>
+        </div>
+  </div>
+  <div class="card-body card-list-body scrollable">
+      <table class="table table-sm table-hover table-bordered text-center">
+          <thead>
+            <tr>
+              <th scope="col">Usuario</th>
+              <th scope="col">Dirección</th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFondeo()" >Fondeo <i class="fa fa-{{fondeoArrow}}" aria-hidden="true"></i></th>
+              <th scope="col">Tipo de envío</th>
+              <th scope="col">Embosado</th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFechaSolicitud()" >Fecha de solicitud <i class="fa fa-{{fechaSolicitudArrow}}"></i></th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFechaEnvio()">Fecha de envío <i class="fa fa-{{fechaEnvioArrow}}"></i></th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByFechaEsperada()">Fecha esperada <i class="fa fa-{{fechaEsperadaArrow}}"></i></th>
+              <th scope="col" class ="table-col-clickable" (click)="sortByNumGuia()">Numero de guía <i class="fa fa-{{numGuiaArrow}}"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let guia of guias | searchListTickets: {fecha: searchText, usuario:searchText,  direccion:searchText, fondeo:searchText, tipo_envio:searchText, embosado:searchText, fecha_solicitud:searchText, fecha_envio:searchText,fecha_esperada:searchText, num_guia:searchText};">
+                <th>{{guia.usuario}}</th>
+                <th>{{guia.direccion}}</th>
+                <td>${{guia.fondeo}}</td>
+                <td>{{guia.tipo_envio}}</td>
+                <td>{{guia.embosado}}</td>
+                <td>{{guia.fecha_solicitud}}</td>
+                <td>{{guia.fecha_envio}}</td>
+                <td>{{guia.fecha_esperada}}</td>
+                <td>{{guia.num_guia}}</td>
+              </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="card-footer text-center">
+      <button (click)="previousPage()"><i class="fa fa-arrow-left"></i></button><button class="{{clickedFive}}" (click)="paginateFive()">5</button><button class="{{clickedTen}}" (click)="paginateTen()">10</button><button class="{{clickedTwenty}}" (click)="paginateTwenty()">20</button><button (click)="nextPage()"><i class="fa fa-arrow-right"></i></button>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Guardar la guía?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">No Guardar <i class="fa fa-ban" aria-hidden="true" ></i></button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" >Guardar <i class="fa fa-save" aria-hidden="true" ></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
