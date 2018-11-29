@@ -51,16 +51,27 @@ export class UserDetailComponent implements OnInit {
         let options = new RequestOptions({ headers: headers });
 
         this.http.get(this.UserDetailURL, options)
-          .pipe(map(data => {
-            console.log("map in action");
-            console.log(data);
-            //console.log(data._body.last_name);
+          
+          //.pipe(map(data => {
+          // 
+          //  console.log(data);
+          //  console.log(data['_body']);
+          //  console.log(data['_body']['email']);
+          //  }))
 
-          }))
-          //.map(response => response.json())
+
+
+         // .pipe(map(({ body }) => body))
+
+
           .subscribe(result => {
-            //console.log(result._body);
+
             console.log(result['_body']);
+            const usersJson: any[] = Array.of(result.json());
+
+            console.log(usersJson);
+            console.log(usersJson[0].email);
+            
 
             return true;
           },
