@@ -6,3 +6,8 @@ html, body{
 body{
     overflow-y: hidden;
 }
+
+.scrollable {
+    max-height: 70%;
+    overflow-y: auto;
+}

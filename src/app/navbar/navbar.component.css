@@ -5,6 +5,9 @@
     
 }
 
+.sidebar{
+    overflow: auto;
+}
 
 .nav-link{
     padding-left: 3.5%;
@@ -50,4 +53,7 @@ a:hover{
       text-align: center;
       float: none;
     }
+
+    
+    
 }
