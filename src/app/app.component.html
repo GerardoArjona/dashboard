@@ -1,9 +1,14 @@
 <div class="container-fluid h-100">
+    <div class="row d-xl-none d-lg-none d-md-none">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navbar-col-responsive">
+            <app-responsive-navbar></app-responsive-navbar>
+        </div>
+    </div>
     <div class="row h-100">
-        <div class="navbar-col col-3 col-sm-3 col-md-3 col-lg-1 col-xl-1">
+        <div class="navbar-col col-md-3 col-lg-1 col-xl-1 d-none d-sm-block">
             <app-navbar></app-navbar>
         </div>
-        <div class="content-col col-9 col-sm-9 col-md-9 col-lg-11 col-xl-11">
+        <div class="content-col col-12 col-sm-12 col-md-9 col-lg-11 col-xl-11">
             <app-content></app-content>
         </div>
     </div>

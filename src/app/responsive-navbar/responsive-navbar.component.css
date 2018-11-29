@@ -1,14 +1,14 @@
-.nav, .container-fluid{
-    background-color: #050631;
+.navbar{
+    background-color: #050631 !important;
     width: 100%;
-} 
+}
 
 .nav-link{
     margin-top: 20%;
 }
 
 .submenu-link{
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 
@@ -29,13 +29,4 @@ a{
     background-color: #050631;
     padding: 0%;
     border-style: none;
-}
-
-a:hover, .dropdown:hover{
-    box-shadow:
-    1px 1px #53a7ea,
-    2px 2px #53a7ea,
-    3px 3px #53a7ea;
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
 }

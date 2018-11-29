@@ -18,6 +18,7 @@ import { SearchListTicketsPipe } from './search-list-tickets.pipe';
 import { UserCardInfoComponent } from './user-card-info/user-card-info.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
+import { ResponsiveNavbarComponent } from './responsive-navbar/responsive-navbar.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { UserPurchasesComponent } from './user-purchases/user-purchases.componen
     UserCardInfoComponent,
     UserAccountComponent,
     UserPurchasesComponent,
+    ResponsiveNavbarComponent,
   ],
   imports: [
     BrowserModule,

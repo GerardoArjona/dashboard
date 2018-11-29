@@ -7,3 +7,7 @@
 .navbar-col{
     padding-left: 0%;
 }
+
+.navbar-col-responsive{
+    padding: 0%;
+}

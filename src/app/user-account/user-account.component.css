@@ -36,3 +36,11 @@ h5{
     background-color: #E1E1E1;
     border-radius: 3px;
 }
+
+@media only screen and (max-width: 700px) {
+
+    .card{
+        margin-top: 2%;
+		max-height: 100%;
+	}
+}
