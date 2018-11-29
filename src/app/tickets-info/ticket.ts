@@ -4,7 +4,7 @@ export class Ticket {
     nombre: string;
     apellidos: string;
     tarjeta: string;
-    dispositvo: boolean;
+    dispositivo: boolean;
     tipo_problema: string;
     problema: string;
     solucion: string;

@@ -19,7 +19,7 @@ export class TicketsInfoComponent implements OnInit {
     nombre: '',
     apellidos: '',
     tarjeta: '',
-    dispositvo: false,
+    dispositivo: false,
     tipo_problema: '',
     problema: '',
     solucion: '',
