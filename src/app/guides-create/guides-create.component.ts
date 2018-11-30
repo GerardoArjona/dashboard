@@ -1,11 +1,73 @@
 import { Component, OnInit } from '@angular/core';
 
+//Http
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
+
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-guides-create',
   templateUrl: './guides-create.component.html',
   styleUrls: ['./guides-create.component.css']
 })
 export class GuidesCreateComponent implements OnInit {
+
+  Auth: string;
+  user: string = "gmeono@miflink.com";
+  host: string = "api.miflink.com";
+  LoginURL: string = "https://"  + this.host +  "/api/v1/administrador/auth/";
+  GuiasDetailURL: string = "https://"  + this.host +  "/api/v1/administrador/send_cards/";
+
+  GuiasDetail(): boolean {
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(this.LoginURL,
+      {
+        email: "sergioja@miflink.com",
+        password: "Flinkrules10."
+      }
+      , options).subscribe(data => {
+        this.Auth = String("JWT " + String(data.json()['token']));
+
+        headers.append('Authorization', this.Auth);
+        let options = new RequestOptions({ headers: headers });
+
+        this.http.get(this.GuiasDetailURL, options)        
+        
+          .subscribe(result => {
+            const usersJson: any[] = Array.of(result.json());
+
+            console.log("GUIAS")
+            console.log(result.json())
+            
+          
+           
+            
+            
+            
+
+            return true;
+          },
+            error => {
+              console.log("Error peticion GuiasDetail");
+              return false;
+            });
+      },
+        error => {
+          console.log("Error peticion login");
+          return false;
+        }
+      );
+
+      return true;
+
+  }
+
 
   searchText : string;
   clickedFive: string;
@@ -367,10 +429,13 @@ export class GuidesCreateComponent implements OnInit {
     },
   ];
 
-  constructor() {
-    this.guias = this.obtainedGuias;
+  
 
-   }
+
+   constructor(private http: Http) {
+    this.guias = this.obtainedGuias;
+    this.GuiasDetail();
+  }
 
   ngOnInit() {
   }
