@@ -6,8 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule, RequestOptions, Headers } from '@angular/http';
 import { Http } from '@angular/http';
 
-//import 'rxjs/Rx';
-//import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -33,7 +31,7 @@ export class UserDetailComponent implements OnInit {
   typeInput = 'password';
 
 
-    UserDetail(): boolean {
+  UserDetail(): boolean {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -50,27 +48,24 @@ export class UserDetailComponent implements OnInit {
         headers.append('Authorization', this.Auth);
         let options = new RequestOptions({ headers: headers });
 
-        this.http.get(this.UserDetailURL, options)
-          
-          //.pipe(map(data => {
-          // 
-          //  console.log(data);
-          //  console.log(data['_body']);
-          //  console.log(data['_body']['email']);
-          //  }))
-
-
-
-         // .pipe(map(({ body }) => body))
-
-
+        this.http.get(this.UserDetailURL, options)        
+        
           .subscribe(result => {
+            const usersJson: any[] = Array.of(result.json());            
+            
+            console.log(usersJson[0].name)          
+            console.log(usersJson[0].last_name)
+            console.log(usersJson[0].mother_name)
+            console.log(usersJson[0].email)
+            console.log(usersJson[0].birthday)
+            console.log(usersJson[0].marital_status)
+            console.log(usersJson[0].delivery_address)
+            console.log(usersJson[0].billing_address)
+            console.log(usersJson[0].cel_number)
 
-            console.log(result['_body']);
-            const usersJson: any[] = Array.of(result.json());
-
-            console.log(usersJson);
-            console.log(usersJson[0].email);
+            // TODO:falta user agent
+            
+            
             
 
             return true;
