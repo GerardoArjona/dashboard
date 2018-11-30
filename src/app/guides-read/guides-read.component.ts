@@ -14,6 +14,8 @@ export class GuidesReadComponent implements OnInit {
 
   orderFondeo = 'asc';
   fondeoArrow = 'minus';
+  orderUsuario = 'asc';
+  usuarioArrow = 'minus';
   orderFechaSolicitud = 'asc';
   fechaSolicitudArrow = 'minus';
   orderFechaEnvio = 'asc';
@@ -33,7 +35,7 @@ export class GuidesReadComponent implements OnInit {
 
   obtainedGuias = [
     {
-      usuario: 'Gerardo Arjona 1',
+      usuario: 'Alvaro Arjona 1',
       direccion: 'Av. Morelos 23',
       fondeo: '302',
       tipo_envio: 'Terrestre',
@@ -163,6 +165,7 @@ export class GuidesReadComponent implements OnInit {
       this.fondeoArrow = 'minus'
       this.fechaSolicitudArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }else if(this.orderNumGuia == 'des'){
       for(let i=0; i<this.guias.length; i++){
@@ -205,12 +208,12 @@ export class GuidesReadComponent implements OnInit {
       this.orderNumGuia = 'asc'
       this.numGuiaArrow = 'arrow-down'
       this.fondeoArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaSolicitudArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }
   }
-
 
   sortByFondeo(){
     this.fondeoArrow="minus"
@@ -257,6 +260,7 @@ export class GuidesReadComponent implements OnInit {
       this.numGuiaArrow = 'minus'
       this.fechaSolicitudArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }else if(this.orderFondeo == 'des'){
       for(let i=0; i<this.guias.length; i++){
@@ -300,6 +304,7 @@ export class GuidesReadComponent implements OnInit {
       this.fondeoArrow = 'arrow-down'
       this.numGuiaArrow = 'minus'
       this.fechaSolicitudArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }
@@ -352,6 +357,7 @@ export class GuidesReadComponent implements OnInit {
       this.numGuiaArrow = 'minus'
       this.fondeoArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }else if(this.orderFechaSolicitud == 'des'){
       for(let i=0; i<this.guias.length; i++){
@@ -398,6 +404,7 @@ export class GuidesReadComponent implements OnInit {
       this.numGuiaArrow = 'minus'
       this.fondeoArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
     }
   }
@@ -450,6 +457,7 @@ export class GuidesReadComponent implements OnInit {
       this.numGuiaArrow = 'minus'
       this.fondeoArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
+      this.usuarioArrow = 'minus'
     }else if(this.orderFechaEnvio == 'des'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
@@ -496,6 +504,7 @@ export class GuidesReadComponent implements OnInit {
       this.numGuiaArrow = 'minus'
       this.fondeoArrow = 'minus'
       this.fechaEsperadaArrow = 'minus'
+      this.usuarioArrow = 'minus'
     }
   }
 
@@ -544,6 +553,7 @@ export class GuidesReadComponent implements OnInit {
       this.orderFechaEsperada='des'
       this.fechaEsperadaArrow = 'arrow-up'
       this.fechaSolicitudArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
       this.numGuiaArrow = 'minus'
       this.fondeoArrow = 'minus'
@@ -592,10 +602,105 @@ export class GuidesReadComponent implements OnInit {
       this.fechaSolicitudArrow = 'minus'
       this.fechaEnvioArrow = 'minus'
       this.numGuiaArrow = 'minus'
+      this.usuarioArrow = 'minus'
       this.fondeoArrow = 'minus'
     }
   }
 
+  sortByUsuario(){
+    this.usuarioArrow='minus'
+    if(this.orderUsuario == 'asc'){
+      for(let i=0; i<this.guias.length; i++){
+        for(let j=0; j<this.guias.length-i-1; j++){ 
+          if(this.guias[j].usuario < this.guias[j+1].usuario){
+            let temp = {
+              usuario : this.guias[j].usuario,
+              direccion : this.guias[j].direccion,
+              fondeo : this.guias[j].fondeo,
+              tipo_envio : this.guias[j].tipo_envio,
+              embosado : this.guias[j].embosado,
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
+            }
+
+            this.guias[j].usuario = this.guias[j+1].usuario
+            this.guias[j].direccion = this.guias[j+1].direccion
+            this.guias[j].fondeo = this.guias[j+1].fondeo
+            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
+            this.guias[j].embosado = this.guias[j+1].embosado
+            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
+
+            this.guias[j+1].usuario = temp.usuario
+            this.guias[j+1].direccion = temp.direccion
+            this.guias[j+1].fondeo = temp.fondeo
+            this.guias[j+1].tipo_envio = temp.tipo_envio
+            this.guias[j+1].embosado = temp.embosado
+            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
+          }
+        }
+      }
+      this.orderUsuario='des'
+      this.usuarioArrow = 'arrow-up'
+      this.fechaEsperadaArrow = 'minus'
+      this.fechaSolicitudArrow = 'minus'
+      this.fechaEnvioArrow = 'minus'
+      this.numGuiaArrow = 'minus'
+      this.fondeoArrow = 'minus'
+    }else if(this.orderUsuario == 'des'){
+      for(let i=0; i<this.guias.length; i++){
+        for(let j=0; j<this.guias.length-i-1; j++){
+          if(this.guias[j].usuario > this.guias[j+1].usuario){
+            let temp = {
+              usuario : this.guias[j].usuario,
+              direccion : this.guias[j].direccion,
+              fondeo : this.guias[j].fondeo,
+              tipo_envio : this.guias[j].tipo_envio,
+              embosado : this.guias[j].embosado,
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
+            }
+
+            this.guias[j].usuario = this.guias[j+1].usuario
+            this.guias[j].direccion = this.guias[j+1].direccion
+            this.guias[j].fondeo = this.guias[j+1].fondeo
+            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
+            this.guias[j].embosado = this.guias[j+1].embosado
+            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
+
+            this.guias[j+1].usuario = temp.usuario
+            this.guias[j+1].direccion = temp.direccion
+            this.guias[j+1].fondeo = temp.fondeo
+            this.guias[j+1].tipo_envio = temp.tipo_envio
+            this.guias[j+1].embosado = temp.embosado
+            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
+          }
+        }
+      }
+      this.orderUsuario='asc'
+      this.usuarioArrow = 'arrow-down'
+      this.fechaEsperadaArrow = 'minus'
+      this.fechaSolicitudArrow = 'minus'
+      this.fechaEnvioArrow = 'minus'
+      this.numGuiaArrow = 'minus'
+      this.fondeoArrow = 'minus'
+    }
+  }
 
   paginateFive(){
     this.paginate_five = true
