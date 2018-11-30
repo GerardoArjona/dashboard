@@ -51,8 +51,9 @@ export class UserDetailComponent implements OnInit {
         this.http.get(this.UserDetailURL, options)        
         
           .subscribe(result => {
-            const usersJson: any[] = Array.of(result.json());            
-            
+            const usersJson: any[] = Array.of(result.json());
+
+            console.log("USER INFO")          
             console.log(usersJson[0].name)          
             console.log(usersJson[0].last_name)
             console.log(usersJson[0].mother_name)
