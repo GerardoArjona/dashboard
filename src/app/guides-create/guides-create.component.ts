@@ -13,6 +13,8 @@ export class GuidesCreateComponent implements OnInit {
   clickedTwenty: string;
   orderFondeo = 'asc';
   fondeoArrow = 'minus';
+  orderUsuario = 'asc';
+  usuarioArrow = 'minus';
   orderFecha = 'asc';
   fechaArrow = 'minus';
   guias = [];
@@ -25,7 +27,7 @@ export class GuidesCreateComponent implements OnInit {
 
   obtainedGuias = [
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 1',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -36,7 +38,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 2',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -47,7 +49,29 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 10',
+      direccion: 'Av. Morelos 253',
+      fondeo: '3000',
+      tipo_envio: 'Terrestre',
+      embosado: 'dhskjhdkjshd',
+      fecha_solicitud: '07-15-2016',
+      fecha_envio: '',
+      fecha_esperada: '',
+      num_guia: ''
+    },
+    {
+      usuario: 'Gerardo Arjona 785',
+      direccion: 'Av. Morelos 253',
+      fondeo: '3000',
+      tipo_envio: 'Terrestre',
+      embosado: 'dhskjhdkjshd',
+      fecha_solicitud: '07-15-2016',
+      fecha_envio: '',
+      fecha_esperada: '',
+      num_guia: ''
+    },
+    {
+      usuario: 'Gerardo Fernando Arjona',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -69,7 +93,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 3',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -80,7 +104,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjonan 90',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -91,7 +115,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona Jimenez',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -102,7 +126,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 21',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -113,7 +137,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona Fernandez',
       direccion: 'Av. Morelos 253',
       fondeo: '3000',
       tipo_envio: 'Terrestre',
@@ -124,29 +148,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona Perez',
       direccion: 'Av. Morelos 253',
       fondeo: '2000',
       tipo_envio: 'Terrestre',
@@ -168,7 +170,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona Armando',
       direccion: 'Av. Morelos 253',
       fondeo: '2000',
       tipo_envio: 'Terrestre',
@@ -179,7 +181,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 89',
       direccion: 'Av. Morelos 253',
       fondeo: '2000',
       tipo_envio: 'Maritimo',
@@ -190,7 +192,7 @@ export class GuidesCreateComponent implements OnInit {
       num_guia: ''
     },
     {
-      usuario: 'Gerardo Arjona',
+      usuario: 'Gerardo Arjona 87',
       direccion: 'Av. Morelos 253',
       fondeo: '2000',
       tipo_envio: 'Terrestre',
@@ -387,7 +389,10 @@ export class GuidesCreateComponent implements OnInit {
               fondeo : this.guias[j].fondeo,
               tipo_envio : this.guias[j].tipo_envio,
               embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
             }
 
             this.guias[j].usuario = this.guias[j+1].usuario
@@ -396,6 +401,9 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
             this.guias[j].embosado = this.guias[j+1].embosado
             this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
 
             this.guias[j+1].usuario = temp.usuario
             this.guias[j+1].direccion = temp.direccion
@@ -403,11 +411,16 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j+1].tipo_envio = temp.tipo_envio
             this.guias[j+1].embosado = temp.embosado
             this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
           }
         }
       }
       this.orderFondeo='des'
       this.fondeoArrow = 'arrow-up'
+      this.usuarioArrow = 'minus';
+      this.fechaArrow = 'minus';
     }else if(this.orderFondeo == 'des'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
@@ -418,7 +431,10 @@ export class GuidesCreateComponent implements OnInit {
               fondeo : this.guias[j].fondeo,
               tipo_envio : this.guias[j].tipo_envio,
               embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
             }
 
             this.guias[j].usuario = this.guias[j+1].usuario
@@ -427,6 +443,9 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
             this.guias[j].embosado = this.guias[j+1].embosado
             this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
 
             this.guias[j+1].usuario = temp.usuario
             this.guias[j+1].direccion = temp.direccion
@@ -434,11 +453,16 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j+1].tipo_envio = temp.tipo_envio
             this.guias[j+1].embosado = temp.embosado
             this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
           }
         }
       }
       this.orderFondeo = 'asc'
       this.fondeoArrow = 'arrow-down'
+      this.usuarioArrow = 'minus';
+      this.fechaArrow = 'minus';
     }
   }
 
@@ -456,7 +480,10 @@ export class GuidesCreateComponent implements OnInit {
               fondeo : this.guias[j].fondeo,
               tipo_envio : this.guias[j].tipo_envio,
               embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
             }
 
             this.guias[j].usuario = this.guias[j+1].usuario
@@ -465,6 +492,9 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
             this.guias[j].embosado = this.guias[j+1].embosado
             this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
 
             this.guias[j+1].usuario = temp.usuario
             this.guias[j+1].direccion = temp.direccion
@@ -472,11 +502,16 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j+1].tipo_envio = temp.tipo_envio
             this.guias[j+1].embosado = temp.embosado
             this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
           }
         }
       }
       this.orderFecha='des'
       this.fechaArrow = 'arrow-up'
+      this.usuarioArrow = 'minus';
+      this.fondeoArrow = 'minus';
     }else if(this.orderFecha == 'des'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
@@ -489,7 +524,10 @@ export class GuidesCreateComponent implements OnInit {
               fondeo : this.guias[j].fondeo,
               tipo_envio : this.guias[j].tipo_envio,
               embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
             }
 
             this.guias[j].usuario = this.guias[j+1].usuario
@@ -498,6 +536,9 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
             this.guias[j].embosado = this.guias[j+1].embosado
             this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
 
             this.guias[j+1].usuario = temp.usuario
             this.guias[j+1].direccion = temp.direccion
@@ -505,11 +546,105 @@ export class GuidesCreateComponent implements OnInit {
             this.guias[j+1].tipo_envio = temp.tipo_envio
             this.guias[j+1].embosado = temp.embosado
             this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
           }
         }
       }
       this.orderFecha = 'asc'
       this.fechaArrow = 'arrow-down'
+      this.usuarioArrow = 'minus';
+      this.fondeoArrow = 'minus';
+    }
+  }
+
+  sortByUsuario(){
+    this.usuarioArrow='minus'
+    if(this.orderUsuario == 'asc'){
+      for(let i=0; i<this.guias.length; i++){
+        for(let j=0; j<this.guias.length-i-1; j++){ 
+          if(this.guias[j].usuario < this.guias[j+1].usuario){
+            let temp = {
+              usuario : this.guias[j].usuario,
+              direccion : this.guias[j].direccion,
+              fondeo : this.guias[j].fondeo,
+              tipo_envio : this.guias[j].tipo_envio,
+              embosado : this.guias[j].embosado,
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
+            }
+
+            this.guias[j].usuario = this.guias[j+1].usuario
+            this.guias[j].direccion = this.guias[j+1].direccion
+            this.guias[j].fondeo = this.guias[j+1].fondeo
+            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
+            this.guias[j].embosado = this.guias[j+1].embosado
+            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
+
+            this.guias[j+1].usuario = temp.usuario
+            this.guias[j+1].direccion = temp.direccion
+            this.guias[j+1].fondeo = temp.fondeo
+            this.guias[j+1].tipo_envio = temp.tipo_envio
+            this.guias[j+1].embosado = temp.embosado
+            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
+          }
+        }
+      }
+      this.orderUsuario='des'
+      this.usuarioArrow = 'arrow-up'
+      this.fondeoArrow = 'minus'
+      this.fechaArrow = 'minus'
+    }else if(this.orderUsuario == 'des'){
+      for(let i=0; i<this.guias.length; i++){
+        for(let j=0; j<this.guias.length-i-1; j++){
+          if(this.guias[j].usuario > this.guias[j+1].usuario){
+            let temp = {
+              usuario : this.guias[j].usuario,
+              direccion : this.guias[j].direccion,
+              fondeo : this.guias[j].fondeo,
+              tipo_envio : this.guias[j].tipo_envio,
+              embosado : this.guias[j].embosado,
+              fecha_solicitud : this.guias[j].fecha_solicitud,
+              fecha_envio : this.guias[j].fecha_envio,
+              fecha_esperada : this.guias[j].fecha_esperada,
+              num_guia : this.guias[j].num_guia
+            }
+
+            this.guias[j].usuario = this.guias[j+1].usuario
+            this.guias[j].direccion = this.guias[j+1].direccion
+            this.guias[j].fondeo = this.guias[j+1].fondeo
+            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
+            this.guias[j].embosado = this.guias[j+1].embosado
+            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
+            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
+            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
+            this.guias[j].num_guia = this.guias[j+1].num_guia
+
+            this.guias[j+1].usuario = temp.usuario
+            this.guias[j+1].direccion = temp.direccion
+            this.guias[j+1].fondeo = temp.fondeo
+            this.guias[j+1].tipo_envio = temp.tipo_envio
+            this.guias[j+1].embosado = temp.embosado
+            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
+            this.guias[j+1].fecha_envio = temp.fecha_envio
+            this.guias[j+1].fecha_esperada = temp.fecha_esperada
+            this.guias[j+1].num_guia = temp.num_guia
+          }
+        }
+      }
+      this.orderUsuario='asc'
+      this.usuarioArrow = 'arrow-down'
+      this.fondeoArrow = 'minus'
+      this.fechaArrow = 'minus'
     }
   }
 

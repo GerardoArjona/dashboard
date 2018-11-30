@@ -13,7 +13,7 @@
         <table class="table table-sm table-hover table-bordered text-center">
             <thead>
               <tr>
-                <th scope="col">Usuario</th>
+                <th scope="col" class ="table-col-clickable" (click)="sortByUsuario()">Usuario <i class="fa fa-{{usuarioArrow}}" aria-hidden="true"></i></th>
                 <th scope="col">Dirección</th>
                 <th scope="col" class ="table-col-clickable" (click)="sortByFondeo()" >Fondeo <i class="fa fa-{{fondeoArrow}}" aria-hidden="true"></i></th>
                 <th scope="col">Tipo de envío</th>
