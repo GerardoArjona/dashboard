@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 
+//Http
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule, RequestOptions, Headers } from '@angular/http';
+import { Http } from '@angular/http';
+
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -8,12 +15,78 @@ import { User } from './user';
 })
 export class UserDetailComponent implements OnInit {
 
+
+  Auth: string;
+  user: string = "gmeono@miflink.com";
+  host: string = "api.miflink.com";
+  LoginURL: string = "https://"  + this.host +  "/api/v1/administrador/auth/";
+  UserDetailURL: string = "https://"  + this.host +  "/api/v1/administrador/customerservice/personal_info" + "?email=" + this.user;
+
+
   buttonState = false;
   isReadOnly = false;
   saveButton = true;
   editButton = false;
   buttonText = 'Editar';
   typeInput = 'password';
+
+
+  UserDetail(): boolean {
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(this.LoginURL,
+      {
+        email: "sergioja@miflink.com",
+        password: "Flinkrules10."
+      }
+      , options).subscribe(data => {
+        this.Auth = String("JWT " + String(data.json()['token']));
+
+        headers.append('Authorization', this.Auth);
+        let options = new RequestOptions({ headers: headers });
+
+        this.http.get(this.UserDetailURL, options)        
+        
+          .subscribe(result => {
+            const usersJson: any[] = Array.of(result.json());
+
+            console.log("USER INFO")          
+            console.log(usersJson[0].name)          
+            console.log(usersJson[0].last_name)
+            console.log(usersJson[0].mother_name)
+            console.log(usersJson[0].email)
+            console.log(usersJson[0].birthday)
+            console.log(usersJson[0].marital_status)
+            console.log(usersJson[0].delivery_address)
+            console.log(usersJson[0].billing_address)
+            console.log(usersJson[0].cel_number)
+
+            // TODO:falta user agent
+            
+            
+            
+
+            return true;
+          },
+            error => {
+              console.log("Error peticion UserDetail");
+              return false;
+            });
+      },
+        error => {
+          console.log("Error peticion login");
+          return false;
+        }
+      );
+
+      return true;
+
+  }
+
+
 
   savedUser: User = {
     nombre: 'Gerardo',
@@ -29,7 +102,9 @@ export class UserDetailComponent implements OnInit {
     };
   
 
-  constructor() { }
+ constructor(private http: Http) {
+    this.UserDetail();
+  }
 
   ngOnInit() {
   }
