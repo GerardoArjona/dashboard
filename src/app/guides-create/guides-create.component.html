@@ -27,12 +27,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let guia of guias | searchListTickets: {fecha: searchText, usuario:searchText,  direccion:searchText, fondeo:searchText, tipo_envio:searchText, embosado:searchText, fecha_solicitud:searchText};">
-                  <th>{{guia.usuario}}</th>
-                  <th>{{guia.direccion}}</th>
+                  <th>{{guia.apaterno}} {{guia.amaterno}} {{guia.nombre}}</th>
+                  <th>{{guia.calle}} {{guia.colonia}} {{guia.municipio}}</th>
                   <td>${{guia.fondeo}}</td>
-                  <td>{{guia.tipo_envio}}</td>
-                  <td>{{guia.embosado}}</td>
-                  <td>{{guia.fecha_solicitud}}</td>
+                  <td>{{guia.envio}}</td>
+                  <td>{{guia.emboso}}</td>
+                  <td>{{guia.solicitada}}</td>
                   <td><input type="date"></td>
                   <td><input type="date"></td>
                   <td><input type="date"></td>

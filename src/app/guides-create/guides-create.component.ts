@@ -14,6 +14,8 @@ import { map } from 'rxjs/operators';
 })
 export class GuidesCreateComponent implements OnInit {
 
+  obtainedGuias : object[] = [];
+
   Auth: string;
   user: string = "gmeono@miflink.com";
   host: string = "api.miflink.com";
@@ -40,17 +42,16 @@ export class GuidesCreateComponent implements OnInit {
         this.http.get(this.GuiasDetailURL, options)        
         
           .subscribe(result => {
-            const usersJson: any[] = Array.of(result.json());
-
-            console.log("GUIAS")
-            console.log(result.json())
+            const guiasJson = Array.of(result.json());
+            const g = []
+            for(let i=0; i<guiasJson[0].length; i++){
+              if(guiasJson[0][i].guide_number == "S/G" || guiasJson[0][i].guide_number == "SG"){
+                g.push(guiasJson[0][i])
+              }
+            }
+            this.obtainedGuias = g
+            this.guias = g
             
-          
-           
-            
-            
-            
-
             return true;
           },
             error => {
@@ -86,356 +87,7 @@ export class GuidesCreateComponent implements OnInit {
   begin = 0;
   end = 0;
 
-
-  obtainedGuias = [
-    {
-      usuario: 'Gerardo Arjona 1',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2018',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 2',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2017',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 10',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 785',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Fernando Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 3',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjonan 90',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona Jimenez',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 21',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona Fernandez',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona Perez',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2018',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona Armando',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 89',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Maritimo',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona 87',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '1',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2012',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '20003',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '2000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-    {
-      usuario: 'Gerardo Arjona',
-      direccion: 'Av. Morelos 253',
-      fondeo: '3000',
-      tipo_envio: 'Terrestre',
-      embosado: 'dhskjhdkjshd',
-      fecha_solicitud: '07-15-2016',
-      fecha_envio: '',
-      fecha_esperada: '',
-      num_guia: ''
-    },
-  ];
-
-  
-
-
-   constructor(private http: Http) {
-    this.guias = this.obtainedGuias;
+  constructor(private http: Http) {
     this.GuiasDetail();
   }
 
@@ -449,36 +101,75 @@ export class GuidesCreateComponent implements OnInit {
         for(let j=0; j<this.guias.length-i-1; j++){
           if(parseInt(this.guias[j].fondeo) < parseInt(this.guias[j+1].fondeo)){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
@@ -491,36 +182,75 @@ export class GuidesCreateComponent implements OnInit {
         for(let j=0; j<this.guias.length-i-1; j++){
           if(parseInt(this.guias[j].fondeo) > parseInt(this.guias[j+1].fondeo)){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
@@ -532,44 +262,95 @@ export class GuidesCreateComponent implements OnInit {
   }
 
   sortByFecha(){
+    let date_1 = []
+    let date_2 = []
     this.fechaArrow='minus'
     if(this.orderFecha == 'asc'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
-          let d1 = new Date(this.guias[j].fecha_solicitud);
-          let d2 = new Date(this.guias[j+1].fecha_solicitud);
+          if(this.guias[j].solicitada == "N/A"){
+            date_1 = ["01","01","1000"]
+            date_2 = this.guias[j+1].solicitada.split("-")
+          }else if(this.guias[j+1].solicitada == "N/A"){
+            date_1 = this.guias[j].solicitada.split("-")
+            date_2 = ["01","01","1000"]
+          }else{
+            date_1 = this.guias[j].solicitada.split("-")
+            date_2 = this.guias[j+1].solicitada.split("-")
+          }
+          let d1 = new Date(date_1[1]+"-"+date_1[0]+"-"+date_1[2]);
+          let d2 = new Date(date_2[1]+"-"+date_2[0]+"-"+date_2[2]);
           if(d1 < d2){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
@@ -580,40 +361,89 @@ export class GuidesCreateComponent implements OnInit {
     }else if(this.orderFecha == 'des'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
-          let d1 = new Date(this.guias[j].fecha_solicitud);
-          let d2 = new Date(this.guias[j+1].fecha_solicitud);
+          if(this.guias[j].solicitada == "N/A"){
+            date_1 = ["01","01","1000"]
+            date_2 = this.guias[j+1].solicitada.split("-")
+          }else if(this.guias[j+1].solicitada == "N/A"){
+            date_1 = this.guias[j].solicitada.split("-")
+            date_2 = ["01","01","1000"]
+          }else{
+            date_1 = this.guias[j].solicitada.split("-")
+            date_2 = this.guias[j+1].solicitada.split("-")
+          }
+          let d1 = new Date(date_1[1]+"-"+date_1[0]+"-"+date_1[2]);
+          let d2 = new Date(date_2[1]+"-"+date_2[0]+"-"+date_2[2]);
           if(d1 > d2){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
@@ -629,38 +459,77 @@ export class GuidesCreateComponent implements OnInit {
     if(this.orderUsuario == 'asc'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){ 
-          if(this.guias[j].usuario < this.guias[j+1].usuario){
+          if((this.guias[j].apaterno+this.guias[j].amaterno+this.guias[j].nombre) < (this.guias[j+1].apaterno+this.guias[j+1].amaterno+this.guias[j+1].nombre)){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
@@ -671,38 +540,77 @@ export class GuidesCreateComponent implements OnInit {
     }else if(this.orderUsuario == 'des'){
       for(let i=0; i<this.guias.length; i++){
         for(let j=0; j<this.guias.length-i-1; j++){
-          if(this.guias[j].usuario > this.guias[j+1].usuario){
+          if((this.guias[j].apaterno+this.guias[j].amaterno+this.guias[j].nombre) > (this.guias[j+1].apaterno+this.guias[j+1].amaterno+this.guias[j+1].nombre)){
             let temp = {
-              usuario : this.guias[j].usuario,
-              direccion : this.guias[j].direccion,
+              amaterno : this.guias[j].amaterno,
+              apaterno : this.guias[j].apaterno,
+              calle : this.guias[j].calle,
+              colonia : this.guias[j].colonia,
+              cp : this.guias[j].cp,
+              email : this.guias[j].email,
+              emboso : this.guias[j].emboso,
+              enviada : this.guias[j].enviada,
+              envio : this.guias[j].envio,
+              esperada : this.guias[j].esperada,
+              estado : this.guias[j].estado,
               fondeo : this.guias[j].fondeo,
-              tipo_envio : this.guias[j].tipo_envio,
-              embosado : this.guias[j].embosado,
-              fecha_solicitud : this.guias[j].fecha_solicitud,
-              fecha_envio : this.guias[j].fecha_envio,
-              fecha_esperada : this.guias[j].fecha_esperada,
-              num_guia : this.guias[j].num_guia
+              guide_number : this.guias[j].guide_number,
+              id : this.guias[j].id,
+              municipio : this.guias[j].municipio,
+              nombre : this.guias[j].nombre,
+              number : this.guias[j].number,
+              numero_celular : this.guias[j].numero_celular,
+              numero_ext : this.guias[j].numero_ext,
+              numero_int : this.guias[j].numero_int,
+              solicitada : this.guias[j].solicitada,
+              status : this.guias[j].status
             }
 
-            this.guias[j].usuario = this.guias[j+1].usuario
-            this.guias[j].direccion = this.guias[j+1].direccion
-            this.guias[j].fondeo = this.guias[j+1].fondeo
-            this.guias[j].tipo_envio = this.guias[j+1].tipo_envio
-            this.guias[j].embosado = this.guias[j+1].embosado
-            this.guias[j].fecha_solicitud = this.guias[j+1].fecha_solicitud
-            this.guias[j].fecha_envio = this.guias[j+1].fecha_envio
-            this.guias[j].fecha_esperada = this.guias[j+1].fecha_esperada
-            this.guias[j].num_guia = this.guias[j+1].num_guia
-
-            this.guias[j+1].usuario = temp.usuario
-            this.guias[j+1].direccion = temp.direccion
-            this.guias[j+1].fondeo = temp.fondeo
-            this.guias[j+1].tipo_envio = temp.tipo_envio
-            this.guias[j+1].embosado = temp.embosado
-            this.guias[j+1].fecha_solicitud = temp.fecha_solicitud
-            this.guias[j+1].fecha_envio = temp.fecha_envio
-            this.guias[j+1].fecha_esperada = temp.fecha_esperada
-            this.guias[j+1].num_guia = temp.num_guia
+            this.guias[j].amaterno = this.guias[j+1].amaterno,
+            this.guias[j].apaterno = this.guias[j+1].apaterno,
+            this.guias[j].calle = this.guias[j+1].calle,
+            this.guias[j].colonia = this.guias[j+1].colonia,
+            this.guias[j].cp = this.guias[j+1].cp,
+            this.guias[j].email = this.guias[j+1].email,
+            this.guias[j].emboso = this.guias[j+1].emboso,
+            this.guias[j].enviada = this.guias[j+1].enviada,
+            this.guias[j].envio = this.guias[j+1].envio,
+            this.guias[j].esperada = this.guias[j+1].esperada,
+            this.guias[j].estado = this.guias[j+1].estado,
+            this.guias[j].fondeo = this.guias[j+1].fondeo,
+            this.guias[j].guide_number = this.guias[j+1].guide_number,
+            this.guias[j].id = this.guias[j+1].id,
+            this.guias[j].municipio = this.guias[j+1].municipio,
+            this.guias[j].nombre = this.guias[j+1].nombre,
+            this.guias[j].number = this.guias[j+1].number,
+            this.guias[j].numero_celular = this.guias[j+1].numero_celular,
+            this.guias[j].numero_ext = this.guias[j+1].numero_ext,
+            this.guias[j].numero_int = this.guias[j+1].numero_int,
+            this.guias[j].solicitada = this.guias[j+1].solicitada,
+            this.guias[j].status = this.guias[j+1].status
+            
+            this.guias[j+1].amaterno = temp.amaterno,
+            this.guias[j+1].apaterno = temp.apaterno,
+            this.guias[j+1].calle = temp.calle,
+            this.guias[j+1].colonia = temp.colonia,
+            this.guias[j+1].cp = temp.cp,
+            this.guias[j+1].email = temp.email,
+            this.guias[j+1].emboso = temp.emboso,
+            this.guias[j+1].enviada = temp.enviada,
+            this.guias[j+1].envio = temp.envio,
+            this.guias[j+1].esperada = temp.esperada,
+            this.guias[j+1].estado = temp.estado,
+            this.guias[j+1].fondeo = temp.fondeo,
+            this.guias[j+1].guide_number = temp.guide_number,
+            this.guias[j+1].id = temp.id,
+            this.guias[j+1].municipio = temp.municipio,
+            this.guias[j+1].nombre = temp.nombre,
+            this.guias[j+1].number = temp.number,
+            this.guias[j+1].numero_celular = temp.numero_celular,
+            this.guias[j+1].numero_ext = temp.numero_ext,
+            this.guias[j+1].numero_int = temp.numero_int,
+            this.guias[j+1].solicitada = temp.solicitada,
+            this.guias[j+1].status = temp.status
           }
         }
       }
